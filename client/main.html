@@ -1,0 +1,64 @@
+<head>
+  <title>TextCircle</title>
+</head>
+
+<body>
+  {{> header}}
+  {{> main}}
+</body>
+
+<template name="header">
+  <div class="nav navbar navbar-default navbar-fixed-top me-nav">
+    <div class="container">
+      <a href="http://hongwing.github.io/Hongwing" class="navbar-brand">Hongwing</a>
+      <p class="navbar-text navbar-right">{{> loginButtons}}</p>
+    </div>
+  </div>
+</template>
+
+<template name="main">
+  <div class="container">
+    <div class="row main-content">
+      <div class="col-md-12">
+        {{> netease}}
+      </div>
+      <div class="col-md-12">
+        {{> editingUser}}
+      </div>
+      <div class="col-md-6 html-content">
+        {{> editor}}
+      </div>
+      <div class="col-md-6">
+        {{> previewer}}
+      </div>
+      </div>
+  </div>
+</template>
+
+<template name="previewer">
+  <iframe id="meframe"></iframe>
+</template>
+
+<template name="editor">
+  <!--{{> editingUser}}-->
+  {{> sharejsCM docid=docid onRender=config id="editor"}}
+</template>
+
+<template name="editingUser">
+  <div class="state-display">
+  <h3>Editor</h3>
+  {{#each users}}
+  <span class="label label-primary">{{firstname}}</span> |
+  {{/each}}
+</div>
+</template>
+
+<Template name="netease">
+  <div id="music" class="put-music">
+    {{#if Current}}
+    <embed src="http://music.163.com/style/swf/widget.swf?sid=3098579&type=1&auto=1&width=310&height=430" class="music" width="330" height="450"  allowNetworking="all" />
+    {{else}}
+    <embed src="http://music.163.com/style/swf/widget.swf?sid=30394763&type=2&auto=1&width=320&height=66" class="music" width="340" height="86"  allowNetworking="all" />
+    {{/if}}
+  </div>
+</Template>
